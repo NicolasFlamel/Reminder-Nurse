@@ -4,6 +4,7 @@ import { QUERY_MEDICINES } from '../utils/queries';
 import DailyMedication from '../components/DailyMedication';
 import rnStatic from '../assets/images/rn_static_01.png';
 
+// Daily section of homepage
 const Daily = () => {
   const sortedMedicine = [];
   // change query to all for caching purposes, handle isActive logic on this end

@@ -609,6 +609,7 @@ hr {
 }
 
 .text-center {
+  margin: auto;
   font-family: 'Shantell Sans', cursive;
 }
 
