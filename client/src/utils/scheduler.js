@@ -13,6 +13,7 @@ class Scheduler {
       message: 'Take your medicine',
       duration: 1000 * 60 * 60,
       native: true,
+      onClick: () => window.parent.focus(),
     });
   }
   setReminder({ time, name }) {
