@@ -1,20 +1,16 @@
-import addNotification from 'react-push-notification';
 import schedule from 'node-schedule';
-import icon from '../assets/images/rn_static_01.png';
+import Notifications from './Notifications';
 
 class Scheduler {
   constructor(jobs) {
     this.jobs = jobs || [];
   }
-  medicineReminder({ time, name }) {
-    addNotification({
-      icon,
-      title: name + '@' + time,
-      message: 'Take your medicine',
-      duration: 1000 * 60 * 60,
-      native: true,
-      onClick: () => window.parent.focus(),
-    });
+  async medicineReminder({ time, name }) {
+    if (Notifications.permission === 'granted') {
+      Notifications.createNotification(time, name);
+    } else {
+      Notifications.requestPermission();
+    }
   }
   setReminder({ time, name }) {
     const jobName = time + '_' + name;

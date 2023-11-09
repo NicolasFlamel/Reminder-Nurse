@@ -1,16 +1,10 @@
 import React from 'react';
-import addNotification from 'react-push-notification';
+import Notifications from '../utils/Notifications';
 import { Button, Container } from 'react-bootstrap';
 
 const Notify = () => {
-  const testNotification = () => {
-    addNotification({
-      title: 'Test',
-      message: 'This is a test',
-      duration: 1000 * 60 * 60,
-      native: true,
-    });
-  };
+  const testNotification = () =>
+    Notifications.createNotification('time', 'name');
 
   return (
     <Container>
