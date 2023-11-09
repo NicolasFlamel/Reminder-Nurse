@@ -1,5 +1,5 @@
 import React from 'react';
-import Scheduler from '../../utils/scheduler';
+import Scheduler from '../../utils/Scheduler';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_CHECKED } from '../../utils/mutations';
 import { toggledQueueCheckedCache } from '../../utils/handleCache';
