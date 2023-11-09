@@ -4,6 +4,7 @@ import { QUERY_MEDICINE } from '../utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
 import Medication from '../components/Medication';
 
+// page to edit a medicine path="/medicine/:medicineId"
 const Medicine = () => {
   const { medicineId } = useParams();
   const { loading, data } = useQuery(QUERY_MEDICINE, {

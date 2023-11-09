@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const NotFound = () => {
   return (
     <Container>
       <section className="page_404">
@@ -27,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NotFound;
