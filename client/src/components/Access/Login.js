@@ -39,13 +39,14 @@ const LoginForm = ({ setLoggedIn, switchForm }) => {
       setLoggedIn(true);
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
-    }
+      event.target.password.focus();
 
-    setUserFormData({
-      username: '',
-      password: '',
-    });
+      setShowAlert(true);
+      setUserFormData({
+        username: userFormData.username,
+        password: '',
+      });
+    }
   };
   return (
     <article className="userForm">

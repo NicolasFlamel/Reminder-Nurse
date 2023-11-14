@@ -39,14 +39,15 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
       Auth.login(data.addUser.token);
       setLoggedIn(true);
     } catch (err) {
-      console.error(err);
-      setShowAlert(true);
-    }
+      console.error(err.message);
+      event.target.password.focus();
 
-    setUserFormData({
-      username: '',
-      password: '',
-    });
+      setShowAlert(true);
+      setUserFormData({
+        username: userFormData.username,
+        password: '',
+      });
+    }
   };
 
   return (
