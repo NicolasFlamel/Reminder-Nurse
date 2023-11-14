@@ -39,7 +39,7 @@ const SignupForm = ({ setLoggedIn, switchForm }) => {
       Auth.login(data.addUser.token);
       setLoggedIn(true);
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
       setShowAlert(true);
     }
 

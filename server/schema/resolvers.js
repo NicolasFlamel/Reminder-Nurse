@@ -1,4 +1,7 @@
-const { AuthenticationError } = require('apollo-server-express');
+const {
+  AuthenticationError,
+  UserInputError,
+} = require('apollo-server-express');
 const { User, Medicine } = require('../models');
 const { signToken } = require('../utils/auth');
 const { updateQueue } = require('../utils/updateQueue');
@@ -25,9 +28,17 @@ const resolvers = {
   Mutation: {
     // User login mutation
     addUser: async (parent, { username, password }) => {
-      const user = await User.create({ username, password });
-      const token = signToken(user);
-      return { token, user };
+      try {
+        const user = await User.create({ username, password });
+        const token = signToken(user);
+
+        return { token, user };
+      } catch (err) {
+        if (err.code === 11000) throw new UserInputError('Username is taken');
+        else if (err?.errors?.password?.path === 'password')
+          throw new UserInputError('Password does not meet requirements');
+        else throw err;
+      }
     },
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
