@@ -1,7 +1,7 @@
-import Scheduler from '../../utils/Scheduler';
+import Scheduler from 'utils/Scheduler';
 import { useMutation } from '@apollo/client';
-import { TOGGLE_CHECKED } from '../../utils/mutations';
-import { toggledQueueCheckedCache } from '../../utils/handleCache';
+import { TOGGLE_CHECKED } from 'utils/mutations';
+import { toggledQueueCheckedCache } from 'utils/handleCache';
 
 const DailyMedication = ({ medicine }) => {
   const [toggleChecked] = useMutation(TOGGLE_CHECKED, toggledQueueCheckedCache);

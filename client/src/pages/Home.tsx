@@ -1,4 +1,4 @@
-import Access from '../components/Access';
+import Access from 'components/Access';
 import Daily from './Daily';
 
 const Home = ({ access: { loggedIn, setLoggedIn } }) => {

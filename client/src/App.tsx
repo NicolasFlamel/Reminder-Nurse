@@ -14,15 +14,15 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import Auth from './utils/auth';
-import Header from './components/Header';
-import DesktopNavbar from './components/Navbar/Desktop';
-import MobileNavbar from './components/Navbar/Mobile';
-import Home from './pages/Home';
-import Medicines from './pages/Medicines';
-import Medicine from './pages/Medicine';
-import NotFound from './pages/NotFound';
-import Notify from './pages/Notify';
+import Auth from 'utils/auth';
+import Header from 'components/Header';
+import DesktopNavbar from 'components/Navbar/Desktop';
+import MobileNavbar from 'components/Navbar/Mobile';
+import Home from 'pages/Home';
+import Medicines from 'pages/Medicines';
+import Medicine from 'pages/Medicine';
+import NotFound from 'pages/NotFound';
+import Notify from 'pages/Notify';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

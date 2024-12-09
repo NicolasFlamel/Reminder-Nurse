@@ -1,4 +1,4 @@
-import Notifications from '../utils/Notifications';
+import Notifications from 'utils/Notifications';
 import { Button, Container } from 'react-bootstrap';
 
 const Notify = () => {

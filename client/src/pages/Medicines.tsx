@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MEDICINES } from '../utils/queries';
-import MedicationList from '../components/MedicationList';
+import { QUERY_MEDICINES } from 'utils/queries';
+import MedicationList from 'components/MedicationList';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from '../assets/images/rn_static_01.png';
 // import rnStatic from '../assets/images/rn_static_01.png';

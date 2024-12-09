@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faCapsules } from '@fortawesome/free-solid-svg-icons';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import Auth from '../../utils/auth';
+import Auth from 'utils/auth';
 
 const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
   const navigate = useNavigate();

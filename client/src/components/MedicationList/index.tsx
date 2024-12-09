@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
-import { TOGGLE_ACTIVE } from '../../utils/mutations';
-import { toggleIsActiveCache } from '../../utils/handleCache';
+import { TOGGLE_ACTIVE } from 'utils/mutations';
+import { toggleIsActiveCache } from 'utils/handleCache';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';

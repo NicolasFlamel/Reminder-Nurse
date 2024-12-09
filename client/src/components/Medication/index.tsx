@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
-import { ADD_MEDICINE, UPDATE_MEDICINE } from '../../utils/mutations';
-import { addMedicineCache, updateMedicineCache } from '../../utils/handleCache';
+import { ADD_MEDICINE, UPDATE_MEDICINE } from 'utils/mutations';
+import { addMedicineCache, updateMedicineCache } from 'utils/handleCache';
 import { useNavigate, Link } from 'react-router-dom';
 import Time from './Time';
 
