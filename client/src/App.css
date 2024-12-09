@@ -26,6 +26,7 @@
   --accentB: #3680e0;
   --accentP: #da7b94;
   --accentPLight: #f097af;
+  max-width: 1280px;
 }
 
 /* universal styles */
