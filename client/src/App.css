@@ -2,6 +2,10 @@
 
 /* importing fonts */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
+
 @font-face {
   font-family: 'Lato';
   src: url(./assets/fonts/Lato-Bold.ttf);
@@ -11,9 +15,6 @@
   font-family: 'News Cycle Bold';
   src: url(./assets/fonts/NewsCycle-Bold.ttf);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 /* color variables */
 
@@ -597,8 +598,6 @@ hr {
 }
 
 /* 404 page */
-
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
 
 .page_404 {
   padding: 40px 0;

@@ -2,7 +2,9 @@ import icon from '../assets/images/rn_static_01.png';
 
 // TODO: actions option for service workers
 class Notifications {
-  constructor(permission) {
+  notification: Notification | undefined;
+  permission: string;
+  constructor(permission?: string) {
     this.notification = undefined;
     this.permission = permission || 'default';
 
@@ -17,14 +19,13 @@ class Notifications {
   async requestPermission() {
     this.permission = await Notification.requestPermission();
   }
-  createNotification(time, name) {
+  createNotification(time: string, name: string) {
     const title = name + '@' + time;
     const body = 'A reminder to take your medicine';
 
     this.notification = new Notification(title, { body, icon });
-    this.notification.onclick = (e) => window.parent.focus();
+    this.notification.onclick = () => window.parent.focus();
   }
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default new Notifications();
