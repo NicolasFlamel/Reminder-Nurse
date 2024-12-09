@@ -4,14 +4,14 @@ export type UserType = {
 };
 export type MedicineType = {
   _id: string;
-  name?: string;
-  dosage?: number;
-  amount?: number;
-  interval?: string;
-  subInterval?: string;
-  times?: [string];
-  queue?: [QueueType];
-  isActive?: boolean;
+  name: string;
+  dosage: number;
+  amount: number;
+  interval: string;
+  subInterval: string;
+  times: [string];
+  queue: [QueueType];
+  isActive: boolean;
   userId: string;
 };
 
