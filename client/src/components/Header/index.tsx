@@ -1,4 +1,4 @@
-import rnIcon from '../../assets/images/rn_icon_white.png';
+import rnIcon from 'assets/images/rn_icon_white.png';
 
 export const Header = () => {
   return (
