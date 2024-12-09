@@ -4,7 +4,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import Medication from 'components/Medication';
 
 // page to edit a medicine path="/medicine/:medicineId"
-const Medicine = () => {
+export const Medicine = () => {
   const { medicineId } = useParams();
   const { loading, data } = useQuery(QUERY_MEDICINE, {
     variables: { medicineId },
@@ -28,5 +28,3 @@ const Medicine = () => {
     </section>
   );
 };
-
-export default Medicine;

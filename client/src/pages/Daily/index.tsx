@@ -2,15 +2,19 @@ import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
 import DailyMedication from 'components/DailyMedication';
 import rnStatic from 'assets/images/rn_static_01.png';
+import { MedicineType, QueryType } from 'types';
 
 // Daily section of homepage
-const Daily = () => {
-  const sortedMedicine = [];
+export const Daily = () => {
+  const sortedMedicine: MedicineType[] = [];
   // change query to all for caching purposes, handle isActive logic on this end
   const { loading, data, error } = useQuery<QueryType>(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
-  else if (error || !data?.medicines) return <h2>{console.log(error)}</h2>;
+  else if (error || !data?.medicines) {
+    console.error(error);
+    return <p>Oops, something went wrong</p>;
+  }
 
   const activeMedicines = data.medicines.filter(
     (medicine) => medicine.isActive
@@ -79,5 +83,3 @@ const Daily = () => {
     </section>
   );
 };
-
-export default Daily;

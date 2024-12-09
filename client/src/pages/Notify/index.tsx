@@ -1,7 +1,7 @@
 import Notifications from 'utils/Notifications';
 import { Button, Container } from 'react-bootstrap';
 
-const Notify = () => {
+export const Notify = () => {
   const testNotification = () =>
     Notifications.createNotification('time', 'name');
 
@@ -12,5 +12,3 @@ const Notify = () => {
     </Container>
   );
 };
-
-export default Notify;

@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+export const NotFound = () => {
   return (
     <Container>
       <section className="page_404">
@@ -25,5 +25,3 @@ const NotFound = () => {
     </Container>
   );
 };
-
-export default NotFound;

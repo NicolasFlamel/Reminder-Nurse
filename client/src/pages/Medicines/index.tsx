@@ -3,11 +3,10 @@ import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
 import MedicationList from 'components/MedicationList';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
-import rnStatic from '../assets/images/rn_static_01.png';
-// import rnStatic from '../assets/images/rn_static_01.png';
+import rnStatic from 'assets/images/rn_static_01.png';
 
 // path="/medicines"
-const Medicines = () => {
+export const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <h2>Loading...</h2>;
@@ -65,5 +64,3 @@ const Medicines = () => {
     </section>
   );
 };
-
-export default Medicines;
