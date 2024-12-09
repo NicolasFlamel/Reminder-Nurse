@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "start:client": "cd client && npm start",
-    "start:server": "cd server && npm run watch",
-    "dev": "concurrently -k -c auto \"npm:start:client\" \"npm:start:server\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "dev": "concurrently -k -c auto \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run watch",
+    "postinstall": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "seed": "cd server && npm run seed",
     "prettier": "npx prettier --write ."
