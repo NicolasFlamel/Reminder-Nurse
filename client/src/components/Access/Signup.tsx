@@ -4,7 +4,7 @@ import Auth from 'utils/auth';
 import { ADD_USER } from 'utils/mutations';
 import { useMutation } from '@apollo/client';
 
-const SignupForm = ({ setLoggedIn, switchForm }) => {
+export const SignupForm = ({ setLoggedIn, switchForm }) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',

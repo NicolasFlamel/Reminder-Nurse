@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINE } from 'utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
-import Medication from 'components/Medication';
+import { Medication } from 'components';
 
 // page to edit a medicine path="/medicine/:medicineId"
 export const Medicine = () => {

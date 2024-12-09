@@ -8,7 +8,7 @@ import { faFilePen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
-const MedicationList = ({ medicines, isActive }) => {
+export const MedicationList = ({ medicines, isActive }) => {
   const [toggleIsActive] = useMutation(TOGGLE_ACTIVE, toggleIsActiveCache);
 
   const handleMedicineToggle = async (e) => {

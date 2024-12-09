@@ -3,7 +3,7 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import LoginForm from './Login';
 import Signup from './Signup';
 
-const Access = ({ access: { setLoggedIn } }) => {
+export const Access = ({ access: { setLoggedIn } }) => {
   const [showLoginForm, setShowLoginForm] = useState(true);
   const login = React.useRef(null);
   const signup = React.useRef(null);

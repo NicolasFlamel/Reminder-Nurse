@@ -15,9 +15,7 @@ import {
 } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Auth from 'utils/auth';
-import Header from 'components/Header';
-import DesktopNavbar from 'components/Navbar/Desktop';
-import MobileNavbar from 'components/Navbar/Mobile';
+import { DesktopNavbar, Header, MobileNavbar } from 'components';
 import { Home, Medicine, Medicines, NotFound, Notify } from 'pages';
 
 const httpLink = createHttpLink({

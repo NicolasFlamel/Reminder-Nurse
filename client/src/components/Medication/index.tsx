@@ -6,7 +6,7 @@ import { addMedicineCache, updateMedicineCache } from 'utils/handleCache';
 import { useNavigate, Link } from 'react-router-dom';
 import Time from './Time';
 
-const Medication = ({ medicine, isNew }) => {
+export const Medication = ({ medicine, isNew }) => {
   const navigate = useNavigate();
   const [createMedicine] = useMutation(ADD_MEDICINE, addMedicineCache);
   const [updateMedicine] = useMutation(UPDATE_MEDICINE, updateMedicineCache);

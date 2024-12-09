@@ -1,6 +1,6 @@
 import rnIcon from '../../assets/images/rn_icon_white.png';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className="d-flex flex-wrap justify-content-center">
       <img

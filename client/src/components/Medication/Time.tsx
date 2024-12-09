@@ -2,7 +2,7 @@ import { Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarXmark } from '@fortawesome/free-solid-svg-icons';
 
-const Time = ({ data, handleChange, handleRemove }) => {
+export const Time = ({ data, handleChange, handleRemove }) => {
   return (
     <li className="d-flex medTime">
       <Form.Control

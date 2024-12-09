@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { TOGGLE_CHECKED } from 'utils/mutations';
 import { toggledQueueCheckedCache } from 'utils/handleCache';
 
-const DailyMedication = ({ medicine }) => {
+export const DailyMedication = ({ medicine }) => {
   const [toggleChecked] = useMutation(TOGGLE_CHECKED, toggledQueueCheckedCache);
 
   // const createSchedules = async () => {

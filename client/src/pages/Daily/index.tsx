@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
-import DailyMedication from 'components/DailyMedication';
+import { DailyMedication } from 'components';
 import rnStatic from 'assets/images/rn_static_01.png';
 import { MedicineType, QueryType } from 'types';
 
