@@ -7,13 +7,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePen } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { MedicineType } from 'types';
+import { MouseEvent } from 'react';
 
-export const MedicationList = ({ medicines, isActive }) => {
+interface MedicationListProps {
+  medicines: MedicineType[];
+  isActive: boolean;
+}
+export const MedicationList = ({
+  medicines,
+  isActive,
+}: MedicationListProps) => {
   const [toggleIsActive] = useMutation(TOGGLE_ACTIVE, toggleIsActiveCache);
 
-  const handleMedicineToggle = async (e) => {
+  const handleMedicineToggle = async (e: MouseEvent<HTMLButtonElement>) => {
     try {
-      const medicineId = e.target.id;
+      const medicineId = e.currentTarget.id;
       await toggleIsActive({ variables: { medicineId } });
     } catch (err) {
       console.error(err);
@@ -39,11 +48,11 @@ export const MedicationList = ({ medicines, isActive }) => {
                     className="MedToggleB"
                     onClick={handleMedicineToggle}
                     id={medicine._id}
+                    disabled={medicine.amount > 0 ? false : true}
                   >
                     <FontAwesomeIcon
                       icon={faTrashCan}
                       className="fa-xl fa-regular MedFAIcon"
-                      disabled={medicine.amount > 0 ? false : true}
                     />
                   </Button>
                 ) : (
@@ -51,11 +60,11 @@ export const MedicationList = ({ medicines, isActive }) => {
                     className="MedToggleB"
                     onClick={handleMedicineToggle}
                     id={medicine._id}
+                    disabled={medicine.amount > 0 ? false : true}
                   >
                     <FontAwesomeIcon
                       icon={faCirclePlus}
                       className="fa-xl fa-regular MedFAIcon"
-                      disabled={medicine.amount > 0 ? false : true}
                     />
                   </Button>
                 )}

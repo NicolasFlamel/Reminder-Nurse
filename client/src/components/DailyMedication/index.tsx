@@ -1,23 +1,23 @@
-import Scheduler from 'utils/Scheduler';
 import { useMutation } from '@apollo/client';
 import { TOGGLE_CHECKED } from 'utils/mutations';
 import { toggledQueueCheckedCache } from 'utils/handleCache';
+import { CurrentMedicine, MedicineType } from 'types';
 
-export const DailyMedication = ({ medicine }) => {
-  const [toggleChecked] = useMutation(TOGGLE_CHECKED, toggledQueueCheckedCache);
-
-  // const createSchedules = async () => {
-  //   await Scheduler.shutdown();
-  //   Scheduler.setReminder({ time: medicine.current.time, name: medicine.name });
-  // };
+type MutationType = { checkQueue: MedicineType };
+interface DailyMedicationProps {
+  medicine: CurrentMedicine;
+}
+export const DailyMedication = ({ medicine }: DailyMedicationProps) => {
+  const [toggleChecked] = useMutation<MutationType>(
+    TOGGLE_CHECKED,
+    toggledQueueCheckedCache
+  );
 
   const handleCheck = async () => {
     const medicineId = medicine._id;
     const queueId = medicine.current._id;
     await toggleChecked({ variables: { medicineId, queueId } });
   };
-
-  // if (!medicine.current.checked) createSchedules();
 
   return (
     <section className="row">

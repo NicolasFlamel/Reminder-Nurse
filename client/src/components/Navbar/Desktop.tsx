@@ -1,7 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { AccessType } from 'types';
 import Auth from 'utils/auth';
 
-export const DesktopNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
+interface DesktopNavbarProps {
+  access: AccessType;
+}
+export const DesktopNavbar = ({
+  access: { loggedIn, setLoggedIn },
+}: DesktopNavbarProps) => {
   const navigate = useNavigate();
 
   const logoutUser = () => {

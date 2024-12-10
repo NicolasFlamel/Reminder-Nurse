@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_MEDICINE, UPDATE_MEDICINE } from 'utils/mutations';
 import { addMedicineCache, updateMedicineCache } from 'utils/handleCache';
 import { useNavigate, Link } from 'react-router-dom';
 import Time from './Time';
+import { BootstrapFormOnChange, MedicineType } from 'types';
 
-export const Medication = ({ medicine, isNew }) => {
+interface MedicationProps {
+  medicine: MedicineType;
+  isNew: boolean;
+}
+export const Medication = ({ medicine, isNew }: MedicationProps) => {
   const navigate = useNavigate();
   const [createMedicine] = useMutation(ADD_MEDICINE, addMedicineCache);
   const [updateMedicine] = useMutation(UPDATE_MEDICINE, updateMedicineCache);
@@ -20,7 +25,7 @@ export const Medication = ({ medicine, isNew }) => {
     times: medicine?.times || ['00:00'],
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
     const form = e.currentTarget;
@@ -30,23 +35,18 @@ export const Medication = ({ medicine, isNew }) => {
       return;
     }
 
-    isNew
-      ? await createMedicine({
-          variables: {
-            medicine: { ...formData },
-          },
-        })
-      : await updateMedicine({
-          variables: {
-            medicineId: medicine._id,
-            medicine: { ...formData },
-          },
-        });
+    if (isNew) {
+      const variables = { medicine: { ...formData } };
+      await createMedicine({ variables });
+    } else {
+      const variables = { medicineId: medicine._id, medicine: { ...formData } };
+      await updateMedicine({ variables });
+    }
 
     navigate('/');
   };
 
-  const handleChange = (e, index) => {
+  const handleChange = (e: BootstrapFormOnChange, index?: number) => {
     const { name, value } = e.target;
 
     switch (name) {
@@ -54,26 +54,30 @@ export const Medication = ({ medicine, isNew }) => {
       case 'amount':
         setFormData({ ...formData, [name]: parseInt(value) });
         break;
-      case 'times':
-        const times = [];
-        for (let i = 0; i < formData.times.length; i++)
-          i === index ? times.push(value) : times.push(formData.times[i]);
+      case 'times': {
+        const times: string[] = [];
+
+        for (let i = 0; i < formData.times.length; i++) {
+          if (i === index) times.push(value);
+          else times.push(formData.times[i]);
+        }
+
         setFormData({ ...formData, times });
         break;
+      }
       default:
         setFormData({ ...formData, [name]: value });
         break;
     }
   };
 
-  const handleAddTime = (e) => {
+  const handleAddTime = () => {
     const times = [...formData.times, '00:00'];
     setFormData({ ...formData, times });
   };
 
-  const handleRemoveTime = (e) => {
-    const times = [...formData.times];
-    times.pop();
+  const handleRemoveTime = (index: number) => {
+    const times = [...formData.times].splice(index, 1);
     setFormData({ ...formData, times });
   };
 
@@ -95,7 +99,7 @@ export const Medication = ({ medicine, isNew }) => {
             className="form-input"
             placeholder="Type in the name of your medicine"
             onChange={handleChange}
-            defaultValue={medicine ? medicine.name : null}
+            defaultValue={medicine ? medicine.name : undefined}
           ></Form.Control>
           <Form.Control.Feedback type="invalid" className="MedFeedback">
             Please input a name!
@@ -105,11 +109,10 @@ export const Medication = ({ medicine, isNew }) => {
         <Form.Group className="form-title" controlId="medicineInterval">
           <Form.Label className="label-usrName">Interval</Form.Label>
           <Form.Select
-            type="interval"
             name="interval"
             className="form-input"
             onChange={handleChange}
-            defaultValue={medicine ? medicine.interval : null}
+            defaultValue={medicine ? medicine.interval : undefined}
           >
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
@@ -120,11 +123,10 @@ export const Medication = ({ medicine, isNew }) => {
         <Form.Group className="form-title" controlId="medicineSubInterval">
           <Form.Label className="label-usrName">Subinterval</Form.Label>
           <Form.Select
-            type="subInterval"
             name="subInterval"
             className="form-input"
             onChange={handleChange}
-            defaultValue={medicine ? medicine.subInterval : null}
+            defaultValue={medicine ? medicine.subInterval : undefined}
           >
             <option>Every</option>
             <option>Every Other</option>
@@ -140,7 +142,7 @@ export const Medication = ({ medicine, isNew }) => {
             className="form-input"
             onChange={handleChange}
             placeholder="Type in the name of your medication dosage"
-            defaultValue={medicine ? medicine.dosage : null}
+            defaultValue={medicine ? medicine.dosage : undefined}
           ></Form.Control>
         </Form.Group>
 
@@ -153,7 +155,7 @@ export const Medication = ({ medicine, isNew }) => {
             className="form-input"
             onChange={handleChange}
             placeholder="Type in the remaining quantities of your medication"
-            defaultValue={medicine ? medicine.amount : null}
+            defaultValue={medicine ? medicine.amount : undefined}
           ></Form.Control>
         </Form.Group>
 

@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from 'utils/auth';
 import { LOGIN_USER } from 'utils/mutations';
 import { useMutation } from '@apollo/client';
+import { SetState } from 'types';
 
-export const LoginForm = ({ setLoggedIn, switchForm }) => {
+interface LoginFormProps {
+  setLoggedIn: SetState<boolean>;
+  switchForm: () => void;
+}
+export const LoginForm = ({ setLoggedIn, switchForm }: LoginFormProps) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -18,12 +23,12 @@ export const LoginForm = ({ setLoggedIn, switchForm }) => {
   // se state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // checking if form has everything
@@ -39,7 +44,7 @@ export const LoginForm = ({ setLoggedIn, switchForm }) => {
       setLoggedIn(true);
     } catch (err) {
       console.error(err);
-      event.target.password.focus();
+      event.currentTarget.password.focus();
 
       setShowAlert(true);
       setUserFormData({

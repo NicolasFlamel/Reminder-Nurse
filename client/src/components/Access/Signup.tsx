@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from 'utils/auth';
 import { ADD_USER } from 'utils/mutations';
 import { useMutation } from '@apollo/client';
+import { SetState } from 'types';
 
-export const SignupForm = ({ setLoggedIn, switchForm }) => {
+interface SignupFormProps {
+  setLoggedIn: SetState<boolean>;
+  switchForm: () => void;
+}
+export const SignupForm = ({ setLoggedIn, switchForm }: SignupFormProps) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -17,12 +22,12 @@ export const SignupForm = ({ setLoggedIn, switchForm }) => {
   //set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -39,8 +44,8 @@ export const SignupForm = ({ setLoggedIn, switchForm }) => {
       Auth.login(data.addUser.token);
       setLoggedIn(true);
     } catch (err) {
-      console.error(err.message);
-      event.target.password.focus();
+      console.error(err);
+      event.currentTarget.password.focus();
 
       setShowAlert(true);
       setUserFormData({

@@ -4,8 +4,14 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faCapsules } from '@fortawesome/free-solid-svg-icons';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Auth from 'utils/auth';
+import { AccessType } from 'types';
 
-export const MobileNavbar = ({ access: { loggedIn, setLoggedIn } }) => {
+interface MobileNavbarProps {
+  access: AccessType;
+}
+export const MobileNavbar = ({
+  access: { loggedIn, setLoggedIn },
+}: MobileNavbarProps) => {
   const navigate = useNavigate();
 
   const logoutUser = () => {
