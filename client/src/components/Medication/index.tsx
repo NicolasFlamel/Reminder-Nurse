@@ -8,10 +8,9 @@ import Time from './Time';
 import { BootstrapFormOnChange, MedicineType } from 'types';
 
 interface MedicationProps {
-  medicine: MedicineType;
-  isNew: boolean;
+  medicine?: MedicineType;
 }
-export const Medication = ({ medicine, isNew }: MedicationProps) => {
+export const Medication = ({ medicine }: MedicationProps) => {
   const navigate = useNavigate();
   const [createMedicine] = useMutation(ADD_MEDICINE, addMedicineCache);
   const [updateMedicine] = useMutation(UPDATE_MEDICINE, updateMedicineCache);
@@ -35,7 +34,7 @@ export const Medication = ({ medicine, isNew }: MedicationProps) => {
       return;
     }
 
-    if (isNew) {
+    if (!medicine) {
       const variables = { medicine: { ...formData } };
       await createMedicine({ variables });
     } else {

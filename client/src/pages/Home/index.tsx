@@ -1,6 +1,10 @@
 import { Daily } from 'pages';
 import { Access } from 'components';
+import { AccessType } from 'types';
 
-export const Home = ({ access: { loggedIn, setLoggedIn } }) => {
-  return loggedIn ? <Daily /> : <Access access={{ setLoggedIn }} />;
+interface HomeProps {
+  access: AccessType;
+}
+export const Home = ({ access }: HomeProps) => {
+  return access.loggedIn ? <Daily /> : <Access access={access} />;
 };

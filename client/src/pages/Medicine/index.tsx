@@ -2,11 +2,12 @@ import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINE } from 'utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
 import { Medication } from 'components';
+import { MedicineQueryType } from 'types';
 
 // page to edit a medicine path="/medicine/:medicineId"
 export const Medicine = () => {
   const { medicineId } = useParams();
-  const { loading, data } = useQuery(QUERY_MEDICINE, {
+  const { loading, data } = useQuery<MedicineQueryType>(QUERY_MEDICINE, {
     variables: { medicineId },
   });
 
@@ -18,9 +19,9 @@ export const Medicine = () => {
       {/* if route has proper id or add load edit or add */}
       {data || medicineId === 'add' ? (
         data ? (
-          <Medication medicine={data.medicine} isNew={false} />
+          <Medication medicine={data.medicine} />
         ) : (
-          <Medication medicine={null} isNew={true} />
+          <Medication />
         )
       ) : (
         <Navigate to="../medicines" />
