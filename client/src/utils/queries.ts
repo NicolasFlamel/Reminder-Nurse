@@ -1,4 +1,15 @@
 import { gql } from '@apollo/client';
+import {
+  AmountType,
+  DosageType,
+  IdType,
+  IntervalType,
+  IsActiveType,
+  NameType,
+  QueueType,
+  SubIntervalType,
+  TimesType,
+} from 'types';
 
 export const QUERY_MEDICINE = gql`
   query singleMedicine($medicineId: ID!) {
@@ -20,6 +31,19 @@ export const QUERY_MEDICINE = gql`
   }
 `;
 
+export type QueryMedicinesType = {
+  medicines: {
+    _id: IdType;
+    name: NameType;
+    dosage: DosageType;
+    amount: AmountType;
+    interval: IntervalType;
+    subInterval: SubIntervalType;
+    times: TimesType;
+    queue: QueueType;
+    isActive: IsActiveType;
+  }[];
+};
 export const QUERY_MEDICINES = gql`
   query allMedicines {
     medicines {
