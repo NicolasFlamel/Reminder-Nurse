@@ -7,7 +7,7 @@
     "start": "node server/server.js",
     "dev": "concurrently -k -c auto \"npm:dev:client\" \"npm:dev:server\"",
     "dev:client": "cd client && npm run dev",
-    "dev:server": "cd server && npm run watch",
+    "dev:server": "cd server && npm run dev",
     "postinstall": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "seed": "cd server && npm run seed",
