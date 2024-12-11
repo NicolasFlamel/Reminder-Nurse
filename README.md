@@ -31,7 +31,7 @@ The deployed application and repository contains the following features:
 
 ### **Front-End**
 
-- Contains **semantic structuring** and **React elements** for accessibility and reader compatability. Streamlines processing-time through React Components and **state management** including front-loading data collection and component reuseability.
+- Contains **semantic structuring** and **React elements** for accessibility and reader compatibility. Streamlines processing-time through React Components and **state management** including front-loading data collection and component reuseability.
 - Application returns all data pertaining to medication for users to view all scheduled medications, and allows users to add new and edit medications.
 - **Media queries** and **CSS** render pages are compatible for multiple device resolutions, including screens, mobile, and desktop to create a responsive and dynamic interface.
 - Makes use of **third-party CSS** and **styling frameworks**, including: Bootstrap, FontAwesome, animate.css, and CSS Transitions.
