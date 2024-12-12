@@ -278,8 +278,8 @@ hr {
   text-decoration: none;
 }
 
-.medicines .tab-content {
-  margin-bottom: 10px;
+.tab-content {
+  min-height: 100px;
 }
 
 .medication-list li {
