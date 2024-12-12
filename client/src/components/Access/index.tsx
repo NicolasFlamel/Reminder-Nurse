@@ -1,3 +1,4 @@
+import './styles.css';
 import { useRef, useState } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import LoginForm from './Login';

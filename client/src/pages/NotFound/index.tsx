@@ -1,3 +1,4 @@
+import './styles.css';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 

@@ -1,3 +1,4 @@
+import './styles.css';
 import { FormEvent, useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
@@ -185,7 +186,7 @@ export const Medication = ({ medicine }: MedicationProps) => {
           >
             Save
           </Button>
-          <Link to={'../medicines'} className="widthHundred">
+          <Link to={'../medicines'} className="w-100">
             <Button className="switchClick" variant="primary">
               Cancel
             </Button>

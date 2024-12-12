@@ -1,3 +1,4 @@
+import './styles.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
 import { DailyMedication, Loading } from 'components';

@@ -1,3 +1,4 @@
+import './styles.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINE } from 'utils/queries';
 import { useParams, Navigate } from 'react-router-dom';
