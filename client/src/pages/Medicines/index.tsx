@@ -2,7 +2,7 @@ import './styles.css';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
-import { Loading, LoadingMedicationList, MedicationList } from 'components';
+import { LoadingMedicationList, MedicationList } from 'components';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from 'assets/images/rn_static_01.png';
 import { ErrorPage } from 'pages/Error';
@@ -11,8 +11,7 @@ import { ErrorPage } from 'pages/Error';
 export const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
-  if (loading) return <Loading />;
-  else if (error) return <ErrorPage error={error} />;
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <section className="MedBottom">
