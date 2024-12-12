@@ -11,10 +11,7 @@ export const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
   if (loading) return <Loading />;
-  else if (error) {
-    console.log(error);
-    return <ErrorPage error={error} />;
-  }
+  else if (error) return <ErrorPage error={error} />;
 
   return (
     <section className="MedBottom">
