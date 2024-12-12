@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
-import { MedicationList } from 'components';
+import { Loading, MedicationList } from 'components';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from 'assets/images/rn_static_01.png';
+import { ErrorPage } from 'pages/Error';
 
 // path="/medicines"
 export const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) {
+  if (loading) return <Loading />;
+  else if (error) {
     console.log(error);
-    return <h2>Error</h2>;
+    return <ErrorPage error={error} />;
   }
 
   return (

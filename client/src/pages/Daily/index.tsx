@@ -1,8 +1,9 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
-import { DailyMedication } from 'components';
+import { DailyMedication, Loading } from 'components';
 import rnStatic from 'assets/images/rn_static_01.png';
 import { CurrentMedicine, MedicinesQueryType } from 'types';
+import { ErrorPage } from 'pages/Error';
 
 // Daily section of homepage
 export const Daily = () => {
@@ -11,10 +12,10 @@ export const Daily = () => {
   const { loading, data, error } =
     useQuery<MedicinesQueryType>(QUERY_MEDICINES);
 
-  if (loading) return <h2>Loading...</h2>;
+  if (loading) return <Loading />;
   else if (error || !data?.medicines) {
     console.error(error);
-    return <p>Oops, something went wrong</p>;
+    return <ErrorPage error={error} />;
   }
 
   const activeMedicines = data.medicines.filter(
