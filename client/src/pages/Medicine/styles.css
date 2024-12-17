@@ -1,0 +1,53 @@
+/* /medicine:medicineId styling */
+
+.edit-medication button {
+  display: block;
+  margin-left: auto;
+}
+
+.edit-medication h2 {
+  margin: 10px;
+}
+
+.edit-medication a {
+  color: white;
+  text-decoration: none;
+}
+
+/* / forms styling */
+
+.form-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 40px;
+  border: 1px solid var(--accentB) !important;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.add-time {
+  width: 100px;
+  height: 40px;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  border: solid 2px var(--accentB) !important;
+  position: relative;
+  bottom: 40px !important;
+  margin-bottom: -25px !important;
+}
+
+.add-time:hover {
+  color: #fff !important;
+}
+
+.medTime {
+  width: 45%;
+}
+
+.MedFeedback {
+  font-size: 15px;
+  margin-left: 13px;
+}

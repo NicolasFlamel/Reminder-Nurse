@@ -1,19 +1,17 @@
+import './styles.css';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MEDICINES } from 'utils/queries';
-import { MedicationList } from 'components';
+import { LoadingMedicationList, MedicationList } from 'components';
 import { Container, Button, Tab, Tabs } from 'react-bootstrap';
 import rnStatic from 'assets/images/rn_static_01.png';
+import { ErrorPage } from 'pages/Error';
 
 // path="/medicines"
 export const Medicines = () => {
   const { loading, data, error } = useQuery(QUERY_MEDICINES);
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) {
-    console.log(error);
-    return <h2>Error</h2>;
-  }
+  if (error) return <ErrorPage error={error} />;
 
   return (
     <section className="MedBottom">
@@ -42,10 +40,18 @@ export const Medicines = () => {
             justify
           >
             <Tab eventKey="active" title="Active Medication">
-              <MedicationList medicines={data.medicines} isActive={true} />
+              {loading ? (
+                <LoadingMedicationList>Loading medicines</LoadingMedicationList>
+              ) : (
+                <MedicationList medicines={data.medicines} isActive={true} />
+              )}
             </Tab>
             <Tab eventKey="inactive" title="Inactive Medication">
-              <MedicationList medicines={data.medicines} isActive={false} />
+              {loading ? (
+                <LoadingMedicationList>Loading medicines</LoadingMedicationList>
+              ) : (
+                <MedicationList medicines={data.medicines} isActive={false} />
+              )}
             </Tab>
           </Tabs>
           <section className="d-flex flex-wrap justify-content-center">

@@ -1,3 +1,4 @@
+import './styles.css';
 import { useRef, useState } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import LoginForm from './Login';
@@ -10,18 +11,18 @@ interface AccessProps {
 export const Access = ({ access: { setLoggedIn } }: AccessProps) => {
   const login = useRef(null);
   const signup = useRef(null);
-  const [showLoginForm, setShowLoginForm] = useState(0);
+  const [showLoginForm, setShowLoginForm] = useState(true);
   const nodeRef = showLoginForm ? login : signup;
 
   const switchForm = () => {
-    setShowLoginForm((prev) => prev + 1);
+    setShowLoginForm((prev) => !prev);
   };
 
   return (
     <section className="LandingContain">
       <SwitchTransition mode="out-in">
         <CSSTransition
-          key={showLoginForm}
+          key={showLoginForm ? 'login' : 'signup'}
           timeout={500}
           classNames="fade"
           nodeRef={nodeRef}

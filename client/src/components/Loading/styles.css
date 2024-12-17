@@ -1,0 +1,27 @@
+.spinner-text {
+  display: none;
+}
+.loading-medication-list {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.loading-spinner {
+  --spinner-color: #3680e0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, var(--spinner-color) 94%, #0000)
+      top/9px 9px no-repeat,
+    conic-gradient(#0000 30%, var(--spinner-color));
+  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-c7wet2 1s infinite linear;
+}
+
+@keyframes spinner-c7wet2 {
+  100% {
+    transform: rotate(1turn);
+  }
+}

@@ -1,7 +1,3 @@
-/*  -- / REMINDER NURSE STYLING  */
-
-/* importing fonts */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
@@ -44,14 +40,6 @@ p {
   color: var(--darkest);
 }
 
-header {
-  width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  background-color: var(--accentB);
-}
-
 body {
   background-color: hsla(200, 0%, 100%, 1);
   background-image: radial-gradient(
@@ -68,114 +56,6 @@ body {
 button:hover {
   cursor: pointer;
   background-color: var(--accentB) !important;
-}
-
-/* / header styling */
-
-.headerImgAdj {
-  max-width: 40%;
-  user-select: none;
-}
-
-/* / navbar styling */
-
-.navAlignR {
-  text-align: right;
-}
-
-.navContent {
-  background-color: var(--darkest) !important;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  list-style-type: none;
-  color: #fff;
-}
-
-.navContent a {
-  color: #fff;
-  font-family: 'Lato';
-  font-size: 14px;
-}
-
-.navContent a:hover {
-  color: #fff;
-  font-family: 'Lato';
-  cursor: pointer;
-  text-decoration: underline var(--accentP) 2px !important;
-  text-underline-offset: 7px;
-}
-
-.navContent ul {
-  margin: 0;
-  padding: 0;
-  list-style-position: inside;
-}
-
-.navContent li {
-  padding-right: 50px;
-  font-size: 14px;
-}
-
-.navNotButton {
-  font-size: 14px;
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-  color: #fff;
-  font-family: 'Lato';
-}
-
-.navNotButton:hover {
-  background: none !important;
-  color: #fff;
-  font-family: 'Lato';
-  cursor: pointer;
-  text-decoration: underline var(--accentP) 2px !important;
-  text-underline-offset: 7px;
-}
-
-.navMobile {
-  background-color: var(--darkest) !important;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.navIcons {
-  color: #fff;
-  word-spacing: 20px;
-}
-
-.navIcons a {
-  color: #fff;
-  cursor: pointer;
-}
-
-.navIcons a:hover {
-  color: var(--accentP);
-  cursor: pointer;
-}
-
-.navIcons button {
-  background: none !important;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  padding: 0 !important;
-}
-
-.navIcons button:hover {
-  color: var(--accentP);
-  cursor: pointer;
-}
-
-/* / daily styling */
-
-.imgContain {
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 .imgNurse {
@@ -195,178 +75,7 @@ button:hover {
   color: var(--accentB);
 }
 
-.dBtn {
-  color: #fff !important;
-  background-color: var(--accentP) !important;
-  text-decoration: none !important;
-  max-width: 400px;
-}
-
-.dTop {
-  max-width: 400px;
-  margin-left: 20px;
-}
-
-.dailyDialogue {
-  margin-top: 50px;
-  margin-left: -2px;
-  border: none !important;
-  text-align: left;
-  font-size: 12px;
-}
-
-.dailyCard {
-  background-color: #fff;
-  max-width: 400px;
-}
-
-.dailyHeader {
-  color: var(--accentB);
-  font-size: 30px;
-}
-
-.dailystext {
-  font-size: 14px;
-  margin-bottom: 3px;
-}
-
-.dailyRemain {
-  font-size: 12px;
-  color: var(--gray);
-}
-
-hr {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  width: 65%;
-}
-
-.dailyCheck {
-  margin-top: 45px;
-  height: 35px;
-  width: 35px;
-}
-
-/* /medicines styling */
-
-.tab-content {
-  border: solid 1px var(--accentB);
-  background-color: var(--shade);
-}
-
-.nav-item .nav-link {
-  font-family: 'Lato';
-  color: var(--accentB);
-  font-size: 13px;
-  border: 0;
-}
-
-.nav-item .nav-link:hover {
-  background-color: var(--accentP) !important;
-  color: #fff;
-  font-size: 13px;
-  border: 0;
-}
-
-.nav-item .nav-link.active {
-  background-color: var(--accentB);
-  color: #fff;
-}
-
-.medicines a {
-  color: white;
-  text-decoration: none;
-}
-
-.medicines .tab-content {
-  margin-bottom: 10px;
-}
-
-.medication-list li {
-  padding: 5px;
-  margin: 10px;
-  margin-top: 15px;
-  background-color: #fff;
-  border: solid 1px var(--accentP);
-  border-radius: 25px;
-}
-
-.MedName {
-  font-family: 'Lato';
-  font-size: 16px;
-}
-
-.MedFAIcon {
-  color: var(--accentB);
-  cursor: pointer;
-  margin-left: 10px;
-  margin-right: 5px;
-  pointer-events: none;
-}
-
-.MedToggleB {
-  display: inline-block !important;
-  border: none !important;
-  outline: none !important;
-  padding: 0 !important;
-  background: #fff !important;
-}
-
-.MedToggleB:hover {
-  background-color: #fff !important;
-}
-
-/* /medicine:medicineId styling */
-
-.edit-medication button {
-  display: block;
-  margin-left: auto;
-}
-
-.edit-medication h2 {
-  margin: 10px;
-}
-
-.edit-medication a {
-  color: white;
-  text-decoration: none;
-}
-
-/* / forms styling */
-
-.LandingContain {
-  margin-top: 50px;
-}
-
-.form-container {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 40px;
-  border: 1px solid var(--accentB) !important;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
-.form-container-login {
-  position: relative;
-  max-width: 500px;
-  margin: 10px auto;
-  padding: 40px;
-  border: 1px solid var(--light) !important;
-  border-radius: 5px;
-  background-color: #fff;
-}
-
-.form-title {
-  margin-bottom: 20px;
-  font-family: 'Lato';
-  font-size: 36px;
-}
-
-.label-usrName {
-  color: var(--accentB);
-  font-family: 'Lato';
-}
+/* Form */
 
 .form-input {
   margin-bottom: 15px;
@@ -379,8 +88,15 @@ hr {
   font-size: 16px !important;
 }
 
-.alert {
-  margin-top: 20px;
+.form-title {
+  margin-bottom: 20px;
+  font-family: 'Lato';
+  font-size: 36px;
+}
+
+.label-usrName {
+  color: var(--accentB);
+  font-family: 'Lato';
 }
 
 .form-submit-btn {
@@ -401,96 +117,6 @@ hr {
   background-color: var(--accentPLight) !important;
   border: solid 2px var(--accentPLight) !important;
   cursor: pointer;
-}
-
-.switchClick {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff !important;
-  cursor: pointer;
-  color: var(--accentB) !important;
-  font-family: 'Lato';
-  font-size: 14px;
-  padding: 13px 32px;
-  border: solid 2px var(--accentB) !important;
-  border-radius: 25px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.switchClick:hover {
-  background-color: var(--accentB) !important;
-  border: solid 2px var(--accentB) !important;
-  color: #fff !important;
-  cursor: pointer;
-}
-
-.title-signup {
-  color: var(--accentB);
-  font-family: 'Lato';
-  font-size: 30px;
-  text-align: center;
-}
-
-.subTitle {
-  font-family: 'Montserrat';
-  font-size: 14px;
-  color: var(--darkest) !important;
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.widthHundred {
-  width: 100%;
-}
-
-.add-time {
-  width: 100px;
-  height: 40px;
-  background-color: #fff !important;
-  cursor: pointer;
-  color: var(--accentB) !important;
-  font-family: 'Lato';
-  font-size: 14px;
-  border: solid 2px var(--accentB) !important;
-  position: relative;
-  bottom: 40px !important;
-  margin-bottom: -25px !important;
-}
-
-.add-time:hover {
-  color: #fff !important;
-}
-
-.medTime {
-  width: 45%;
-}
-
-.MedFeedback {
-  font-size: 15px;
-  margin-left: 13px;
-}
-
-.fade-enter .userForm {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-.fade-enter-active .userForm {
-  opacity: 1;
-  transform: translateX(0%);
-}
-.fade-exit .userForm {
-  opacity: 1;
-  transform: translateX(0%);
-}
-.fade-exit-active .userForm {
-  opacity: 0;
-  transform: translateX(100%);
-}
-.fade-enter-active .userForm,
-.fade-exit-active .userForm {
-  transition: opacity 500ms, transform 500ms;
 }
 
 /* media queries */
@@ -594,46 +220,4 @@ hr {
     height: 35px;
     bottom: 35px !important;
   }
-}
-
-/* 404 page */
-
-.page_404 {
-  padding: 40px 0;
-  background: #fff;
-}
-
-.page_404 img {
-  width: 100%;
-}
-
-.text-center {
-  margin: auto;
-  font-family: 'Shantell Sans', cursive;
-}
-
-.four_zero_four_bg {
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 700px;
-  background-position: center;
-}
-
-.four_zero_four_bg h1 {
-  font-size: 80px;
-}
-
-.four_zero_four_bg h3 {
-  font-size: 80px;
-}
-
-.link_404 {
-  color: #fff !important;
-  padding: 10px 20px;
-  background: #39ac31;
-  margin: 20px 0;
-  display: inline-block;
-}
-
-.contant_box_404 {
-  margin-top: -50px;
 }

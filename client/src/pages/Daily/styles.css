@@ -1,0 +1,58 @@
+/* / daily styling */
+
+.imgContain {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dBtn {
+  color: #fff !important;
+  background-color: var(--accentP) !important;
+  text-decoration: none !important;
+  max-width: 400px;
+}
+
+.dTop {
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.dailyDialogue {
+  margin-top: 50px;
+  margin-left: -2px;
+  border: none !important;
+  text-align: left;
+  font-size: 12px;
+}
+
+.dailyCard {
+  background-color: #fff;
+  max-width: 400px;
+}
+
+.dailyHeader {
+  color: var(--accentB);
+  font-size: 30px;
+}
+
+.dailystext {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.dailyRemain {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 65%;
+}
+
+.dailyCheck {
+  margin-top: 45px;
+  height: 35px;
+  width: 35px;
+}

@@ -43,31 +43,17 @@ export const MedicationList = ({
                     className="fa-xl MedFAIcon MedToggleB"
                   />
                 </Link>
-                {isActive ? (
-                  <Button
-                    className="MedToggleB"
-                    onClick={handleMedicineToggle}
-                    id={medicine._id}
-                    disabled={medicine.amount > 0 ? false : true}
-                  >
-                    <FontAwesomeIcon
-                      icon={faTrashCan}
-                      className="fa-xl fa-regular MedFAIcon"
-                    />
-                  </Button>
-                ) : (
-                  <Button
-                    className="MedToggleB"
-                    onClick={handleMedicineToggle}
-                    id={medicine._id}
-                    disabled={medicine.amount > 0 ? false : true}
-                  >
-                    <FontAwesomeIcon
-                      icon={faCirclePlus}
-                      className="fa-xl fa-regular MedFAIcon"
-                    />
-                  </Button>
-                )}
+                <Button
+                  className="MedToggleB"
+                  onClick={handleMedicineToggle}
+                  id={medicine._id}
+                  disabled={medicine.amount > 0 ? false : true}
+                >
+                  <FontAwesomeIcon
+                    icon={isActive ? faTrashCan : faCirclePlus}
+                    className="fa-xl fa-regular MedFAIcon"
+                  />
+                </Button>
               </section>
             </section>
           </li>

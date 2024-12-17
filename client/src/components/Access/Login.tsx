@@ -10,17 +10,12 @@ interface LoginFormProps {
   switchForm: () => void;
 }
 export const LoginForm = ({ setLoggedIn, switchForm }: LoginFormProps) => {
-  // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
     password: '',
   });
-
   const [login, { loading }] = useMutation(LOGIN_USER);
-
-  // set state for form validation
   const [validated] = useState(false);
-  // se state for alert
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +39,7 @@ export const LoginForm = ({ setLoggedIn, switchForm }: LoginFormProps) => {
       setLoggedIn(true);
     } catch (err) {
       console.error(err);
-      event.currentTarget.password.focus();
+      form.password.focus();
 
       setShowAlert(true);
       setUserFormData({

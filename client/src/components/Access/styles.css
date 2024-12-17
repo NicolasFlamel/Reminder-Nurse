@@ -1,0 +1,76 @@
+.LandingContain {
+  margin-top: 50px;
+}
+
+.form-container-login {
+  position: relative;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 40px;
+  border: 1px solid var(--light) !important;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.switchClick {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff !important;
+  cursor: pointer;
+  color: var(--accentB) !important;
+  font-family: 'Lato';
+  font-size: 14px;
+  padding: 13px 32px;
+  border: solid 2px var(--accentB) !important;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.switchClick:hover {
+  background-color: var(--accentB) !important;
+  border: solid 2px var(--accentB) !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.title-signup {
+  color: var(--accentB);
+  font-family: 'Lato';
+  font-size: 30px;
+  text-align: center;
+}
+
+.subTitle {
+  font-family: 'Montserrat';
+  font-size: 14px;
+  color: var(--darkest) !important;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.fade-enter .userForm {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.fade-enter-active .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit .userForm {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit-active .userForm {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.fade-enter-active .userForm,
+.fade-exit-active .userForm {
+  transition: opacity 500ms, transform 500ms;
+}
