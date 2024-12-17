@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from 'utils/auth';
 import { ADD_USER } from 'utils/mutations';
-import { useMutation } from '@apollo/client';
+import { ApolloError, useMutation } from '@apollo/client';
 import { SetState } from 'types';
 
 interface SignupFormProps {
@@ -15,12 +15,9 @@ export const SignupForm = ({ setLoggedIn, switchForm }: SignupFormProps) => {
     username: '',
     password: '',
   });
-
   const [addUser, { loading }] = useMutation(ADD_USER);
-  //set state for form validation
   const [validated] = useState(false);
-  //set state for alert
-  const [showAlert, setShowAlert] = useState(false);
+  const [formAlert, setFormAlert] = useState('');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -45,9 +42,14 @@ export const SignupForm = ({ setLoggedIn, switchForm }: SignupFormProps) => {
       setLoggedIn(true);
     } catch (err) {
       console.error(err);
-      event.currentTarget.password.focus();
+      form.password.focus();
 
-      setShowAlert(true);
+      if (err instanceof ApolloError) {
+        setFormAlert(err.message);
+      } else {
+        setFormAlert('Something went wrong with your signup!');
+      }
+
       setUserFormData({
         username: userFormData.username,
         password: '',
@@ -68,11 +70,11 @@ export const SignupForm = ({ setLoggedIn, switchForm }: SignupFormProps) => {
         <Alert
           className="alert"
           dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
+          onClose={() => setFormAlert('')}
+          show={!!formAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          {formAlert}
         </Alert>
         <Form.Group className="form-title">
           <h4 className="title-signup">Sign Up</h4>
